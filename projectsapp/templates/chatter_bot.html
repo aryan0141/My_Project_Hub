@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href='{% static "mycssprojects.css"%}' type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Aryan Project Hub!</title>
+  </head>
+  <body style="background-color: white; font-family: 'Baloo Bhai 2', cursive;">
+     <nav id="navbar">
+        <div id="logo">
+            <img src='{% static "images/logo.png"%}' alt="Logo">
+        </div>
+       
+        <ul>
+            <li class="item" style="margin-top:10px;"><a href="/#home">Home</a></li>
+            <li class="item" style="margin-top:10px;"><a href="/#about" align="right">About</a></li>
+            <li class="item" style="margin-top:10px;"><a href="/#feedback">Feedback</a></li>
+            <div style="visibility: hidden; display: flex;">
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            <li class="item"><a href="#"></a></li>
+            
+            </div>
+        </ul>
+        
+        <ul>
+            {% if user.is_authenticated %}
+              <p>Hello, {{user.first_name}}</p>
+              <li><a style="margin-top: 16px; border: 2px solid red; border-radius: 11px color: red;" href="javascript:AlertIt();">Logout</a></li>
+            {% else %} 
+            <div style="visibility: hidden; display: flex;">
+                <li class="item"><a href="#"></a></li>
+                <li class="item"><a href="#"></a></li>
+            </div>
+                <li class="item" style="margin-top: 16px;"><a href="register">SignUp</a></li>
+                <li class="item" style="margin-top: 16px;"><a href="login">Login</a></li>
+            {% endif %}  
+        </ul>
+       
+    </nav>
+	<h1>
+		Chat Bot
+	</h1>
+
+	<div id="center-box-download">
+	<h1>Source code-</h1>
+	<p style="font-size: 25px;"><a href="{% static 'upload/drs.zip'%}">Click here </a> to download the source code.</p>
+	</div>
+
+	<div id="center-box">
+		<h1>
+			Description-
+		</h1>
+	</div>
+
+	<div id="center-box">
+		<h1>Directory Structure-</h1>
+	</div>
+
+	<footer> 
+  Copyright &copy Aryan Projects Hub! All rights reserved.
+</footer>
+<script type="text/javascript">
+      function AlertIt() {
+      var answer = confirm ("Are you sure to logout.")
+      if (answer)
+        window.location="logout";
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* CSS Variables */
+:root{
+    --navbar-height: 59px;
+}
+#navbar{
+    display: flex;
+    
+    align-items: center;
+    background-color: #95d0ea;
+    top: 0px;
+   
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* Navigation Bar: Logo and Image */
+#logo{
+    margin: 10px 34px;
+}
+
+#logo img{
+    height: 40px;
+    margin-top: -7px;
+   
+}
+
+
+/* Navigation Bar: List Styling */
+
+#navbar ul{
+    display: flex;
+}
+
+#navbar ul li{ 
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 9px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+#navbar p{
+    font-size: 27px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+#center-box{
+    border: 3px solid gold;
+    width: 90%;
+    height: 500px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 11px;
+}
+#center-box-download{
+    border: 3px solid gold;
+    border-radius: 11px;
+    width: 90%;
+    text-align: center;
+    height: 115px;
+    display: block;
+    margin: 10px auto;
+}
+footer{
+	text-align: center;
+	justify-content: center;
+	color: white;
+	background-color: black;
+	width: 100%;
+	padding: 5px 10px;
+}
+h1{
+    font-size: 55px;
+	text-align: center;
+    font-style: cursive;
+}
+.hover:hover{
+	border:3px solid black;
+}
+#alert{
+    font-style: bold;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}

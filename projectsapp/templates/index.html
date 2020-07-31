@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <link rel="stylesheet" href='{% static "mycss.css" type="text/css"> -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+      --navbar-height: 59px;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      /* background-image: linear-gradient(155deg, #08faee, rgb(248, 244, 28)); */
+      background-color: #08faee;
+      top: 0px;
+
+    }
+
+    #navbar::before {
+      content: "";
+      background-color: black;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* Navigation Bar: Logo and Image */
+    #logo {
+      margin: 10px 34px;
+    }
+
+    #logo img {
+      height: 35px;
+      margin-top: -7px;
+
+    }
+
+
+    /* Navigation Bar: List Styling */
+
+    #navbar ul {
+      display: flex;
+    }
+
+    #navbar ul li {
+      list-style: none;
+      font-size: 1.1rem;
+    }
+
+    #navbar ul li a {
+      color: white;
+      display: block;
+      padding: 3px 11px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    #navbar ul li a:hover {
+      color: black;
+      background-color: white;
+    }
+
+    #navbar p {
+      font-size: 21px;
+      margin-top: 7px;
+      margin-right: 5px;
+    }
+
+    #center-box {
+      background-image: linear-gradient(aqua, yellow);
+      border-radius: 5px;
+      align-content: center;
+      text-align: center;
+      justify-content: center;
+      padding: 194px 0px;
+    }
+
+    #project-box-1 {
+      background-image: linear-gradient(yellow, aqua);
+      padding: 5px;
+    }
+
+    #project-box-2 {
+      background-image: linear-gradient(aqua, yellow);
+      padding: 5px;
+    }
+
+    #project-box-3 {
+      background-image: linear-gradient(yellow, aqua);
+      padding: 5px;
+    }
+
+    #project-box-4 {
+      background-image: linear-gradient(aqua, yellow);
+      padding: 5px;
+    }
+
+    #project-box-5 {
+      background-image: linear-gradient(yellow, aqua);
+      padding: 5px;
+    }
+
+    #project-box-6 {
+      background-image: linear-gradient(aqua, yellow);
+      padding: 5px;
+    }
+
+    footer {
+      text-align: center;
+      justify-content: center;
+      color: white;
+      background-color: #08faee;
+      width: 100%;
+      padding: 3px 0px;
+    }
+
+    h1 {
+      font-size: 55px;
+      text-align: center;
+      font-style: cursive;
+    }
+
+    #textarea {
+      font-size: 20px;
+      font-family: cursive;
+      font-style: bold;
+      text-align: center;
+      align-content: center;
+      justify-content: center;
+      margin: 10px auto;
+      display: block;
+    }
+
+    #btn {
+      display: block;
+      margin: 5px auto;
+    }
+
+    .hover:hover {
+      border: 2px solid gold;
+    }
+
+    #register-form {
+      width: 80%;
+      display: block;
+      margin: 30px 0px 50px 290px;
+    }
+
+    #login-form {
+      width: 80%;
+      display: block;
+      margin: 30px 0px 50px 290px;
+    }
+
+    #about img {
+      margin: 10px 8px 0px 0px;
+      border-radius: 11px;
+    }
+
+    #about p {
+
+      font-size: 18px;
+    }
+
+    #about a {
+      text-decoration: none;
+      padding-top: 4px;
+    }
+
+    #feedback input {
+      cursor: pointer;
+    }
+
+    #alert {
+      font-style: bold;
+      font-size: 30px;
+      text-align: center;
+      color: red;
+    }
+
+    .css-grid {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      background-image: linear-gradient(yellow, aqua);
+      padding: 10px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <title>Aryan Project Hub!</title>
+</head>
+
+<body style="font-family: 'Baloo Bhai 2', cursive;">
+  {% for message in messages %}
+  <div id="alert" style="color: green; z-index: 2;" class="alert alert-success message" role="alert">
+    {{message}}
+  </div>
+  {% endfor %}
+
+  <nav id="navbar">
+    <div class="nav-left" style="float: left; display: flex;">
+
+      <div id="logo">
+        <img src='{% static "images/logo.png"%}' alt="Logo">
+      </div>
+
+      <ul>
+        <li class="item" style="margin-top:10px;"><a href="#center-box">Home</a></li>
+        <li class="item" style="margin-top:10px;"><a href="#about">About</a></li>
+        <li class="item" style="margin-top:10px;"><a href="#project-box-1">Projects</a></li>
+        <li class="item" style="margin-top:10px;"><a href="#feedback">Feedback</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right" style="margin-left: 55rem; display: flex;">
+
+
+      <ul>
+        {% if user.is_authenticated %}
+        <p style="font-size: 1.2rem;">Hello, {{user.first_name}}</p>
+        <li><a style="margin-top: 8px; border: 2px solid red; border-radius: 5px; color: red;"
+            href="javascript:AlertIt();">Logout</a></li>
+        {% else %}
+        <div style="visibility: hidden; display: flex;">
+          <li class="item"><a href="#"></a></li>
+          <li class="item"><a href="#"></a></li>
+        </div>
+        <li class="item" style="margin-top: 16px;"><a href="register">SignUp</a></li>
+        <li class="item" style="margin-top: 16px;"><a href="login">Login</a></li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </nav>
+
+
+
+  <div id="center-box">
+    <img src="{% static 'images/logo.png'%}" height="200px">
+    <h1>
+      Welcome to Aryan's Project Hub
+    </h1>
+  </div>
+  <div id="project-box-1">
+    <h1>
+      Machine Learning projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Machine learning' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="#" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div id="project-box-2">
+    <h1>
+      Computer Vision projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Computer vision' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="chatter_bot" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div id="project-box-3">
+    <h1>
+      Deep Learning projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Deep learning' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="#" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div id="project-box-4">
+    <h1>
+      Gaming projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Gaming' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="#" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div id="project-box-5">
+    <h1>
+      Miscelleneous projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Miscelleneous' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="#" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div id="project-box-6">
+
+    <h1>
+      Hardware projects-
+    </h1>
+    <div class="row row-cols-1 row-cols-md-4">
+      {% for dest in lst %}
+      {% if dest.category == 'Hardware' %}
+      <div class="col mb-4" style="margin-left:10px; ">
+        <div class="card h-100 hover">
+          <img src="{{dest.image.url}}" width="240px" height="140px" class="card-img-top" alt="No image found">
+          <div class="card-body">
+            <h5 class="card-title">{{dest.projectname}}</h5>
+            <p class="card-text">{{dest.short_desc}}</p>
+            <a href="#" class="btn btn-primary">More info</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Uploaded on {{dest.date}} </small>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="css-grid">
+
+    <div id="about">
+      <img src="{% static 'images/user.png'%}" alt="nikal laude" width="150px" height="150px">
+      <div>
+
+        <p>Hii, my self Aryan Garg. I'm 18 years old and I currently pursuing my Bachelor's degree from Indian Institute
+          of Technology Jodhpur as an Second Year student. I lives in Jaipur, India. I'm currently learning major fields
+          of Computer Science & explore new things. I make several projects and upload them here so that everyone can
+          see
+          my works, which gives me fun and appreciation. If you have an any querry or dowot feel free to ask in the
+          comments section. I will definately replies your to comments. Your feedback will improve us.</p>
+      </div>
+      <div style="display: flex;">
+
+
+        <a target="blank_">
+          <img alt="W3Schools" src="{% static 'images/github.png'%}" width="32" height="32">
+          </a>
+        <a target="blank_">
+          <img alt="W3Schools" src="{% static 'images/instagram.jpg'%}" width="32" height="32">
+          </a>
+      </div>
+        
+    </div>
+
+    <div id="feedback">
+      <h1>
+        Feedback
+      </h1>
+      <div>
+        <form action="/" method="post" id="my-form">{% csrf_token %}
+          <div style="text-align: center;">
+            <h3>How was your experience-</h3>
+            <input type="radio" id="check" name="check" value="Good" checked="checked">
+            <label for="check">Good</label>
+            <input type="radio" id="ckeck" name="check" value="Average">
+            <label for="check">Average</label>
+            <input type="radio" id="check" name="check" value="Bad">
+            <label for="check">Bad</label>
+          </div>
+
+          <textarea style="border-radius: 5px;" id="textarea" name="feedback" class="hover" rows="7" cols="55"
+            placeholder="Leave your comments here" required="true"></textarea>
+          <button type="submit" id="btn" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="#navbar">Back to top &#8593;</a>
+    <p>
+      Copyright &copy Aryan Projects Hub! All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    function AlertIt() {
+      var answer = confirm("Are you sure want to logout.")
+      if (answer)
+        window.location = "logout";
+    }
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+  </script>
+  <script>
+
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.message').fadeOut('slow');
+      }, 2000);
+    });
+  </script>
+</body>
+
+</html>
